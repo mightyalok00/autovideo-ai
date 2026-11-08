@@ -1,186 +1,82 @@
 # AutoVideo AI
 
-## Autonomous 100% Free Long-Form Video Production Engine
+**Turn a topic into a narrated YouTube video—using free tools and a simple Python workflow.**
 
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Local LLM](https://img.shields.io/badge/Ollama-Local%20%26%20Private-orange.svg?logo=ollama&logoColor=white)](https://ollama.com)
-[![Voice](https://img.shields.io/badge/Voice-Microsoft%20Neural%20TTS-cyan.svg)](https://github.com/rany2/edge-tts)
-[![Engine](https://img.shields.io/badge/Engine-FFmpeg%20Lossless-red.svg?logo=ffmpeg&logoColor=white)](https://ffmpeg.org/)
-[![Cloud Run](https://github.com/mightyalok00/autovideo-ai/actions/workflows/generate-video.yml/badge.svg)](https://github.com/mightyalok00/autovideo-ai/actions/workflows/generate-video.yml)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)](https://github.com/mightyalok00/autovideo-ai)
+AutoVideo AI creates scripts, voiceovers, visuals, MP4 videos, thumbnails, and YouTube metadata. It runs locally and uses FFmpeg for rendering.
 
-**Transform raw topics into broadcast-quality 1080p YouTube documentaries, explainers, and lore videos with zero paid API subscriptions.**
+## What it does
 
-[Key Features](#key-features) • [Quick Start](#quick-start) • [Pipeline Architecture](#pipeline-architecture) • [Supported Niches](#supported-niches) • [Configuration](#configuration)
+- Generates a video script with a local Ollama model or configured AI provider.
+- Creates narration with Microsoft Edge TTS.
+- Finds or generates scene visuals.
+- Renders scenes and narration into an MP4 with FFmpeg.
+- Creates a thumbnail and SEO-ready title, description, tags, and chapters.
 
----
+## Quick start
 
-## Overview
+### 1. Install
 
-AutoVideo AI is a self-directing video production engine designed for content creators, educators, and media automation workflows.
-
-Unlike tools that rely on expensive SaaS subscriptions, AutoVideo AI runs a unified, zero-cost pipeline on your local hardware:
-
-1. **Scriptwriting:** Directs dynamic multi-scene narrative scripts via local Ollama models (`llama3.2`, `mistral`, `deepseek-r1`) with cloud fallback options.
-2. **Audio Synthesis:** Narrates scripts using Microsoft Edge Neural Speech for natural human pacing and inflection.
-3. **Visual Production:** Generates tailored scenes using Pollinations AI coupled with authentic archival imagery from Wikimedia REST.
-4. **Cinematic Assembly:** Executes lossless FFmpeg rendering with Ken Burns pan/zoom motions, audio ducking, and ambient background music.
-5. **YouTube Packaging:** Automatically produces 1280x720 high-CTR thumbnails, timestamped chapter markers, SEO titles, and tags.
-
----
-
-## Key Features
-
-| Capability | Implementation | Benefit |
-| :--- | :--- | :--- |
-| **Local Intelligence** | Ollama (`llama3.2`, `mistral`, `deepseek-r1`) | 100% offline, zero token fees, unlimited length |
-| **Neural Voiceover** | Microsoft Edge Neural TTS (`edge-tts 7.3.1`) | Human-sounding cadence with custom pitch/rate controls |
-| **Archival & AI Imagery** | Pollinations AI + Wikimedia REST API | Zero-rate-limit visuals with authentic historical context |
-| **FFmpeg Video Assembler** | Lossless Concat Demuxer + Ken Burns FX | 60 FPS / 1080p rendering without RAM bottlenecks |
-| **Sound Design** | FFmpeg Audio Ducking Filter Graph | Ambient background score ducked under voice narration |
-| **Packaging Engine** | Pillow High-Contrast Typographic Overlay | 1280x720 click-optimized thumbnails and SEO metadata |
-| **Web Dashboard** | Native Python HTTP/REST Studio | Accessible at `http://localhost:8501` without complex frameworks |
-
----
-
-## Pipeline Architecture
-
-```mermaid
-flowchart LR
-    A[Topic Input] --> B[Niche Selector & Scriptwriter]
-    B --> C[Viral Retention Audit]
-    C --> D[Voiceover Synthesizer]
-    C --> E[Visual Asset Engine]
-    D --> F[FFmpeg Ken Burns Engine]
-    E --> F
-    F --> G[Audio Ducking & BGM Mixer]
-    G --> H[Master 1080p Video]
-    A --> I[Thumbnail & SEO Generator]
-    I --> J[YouTube Launch Package]
-```
-
----
-
-## Quick Start
-
-### Cloud & Mobile Run (Zero Local Setup)
-
-You can trigger production runs directly in the cloud from your mobile phone (GitHub Mobile App) or desktop browser:
-
-1. Open the [Generate Video Workflow](https://github.com/mightyalok00/autovideo-ai/actions/workflows/generate-video.yml).
-2. Click **Run workflow**.
-3. Type your topic, select your niche, pick duration (1, 3, or 5 min), and click **Run workflow**.
-4. When finished, download your broadcast-ready 1080p MP4, thumbnail, and SEO package from the **Artifacts** section.
-
----
-
-### Local Installation
-
-#### 1. Prerequisites
-
-- Python 3.10 or higher
-- FFmpeg installed and added to system `PATH`
-- (Recommended) [Ollama](https://ollama.com) for local, private script generation:
-
-```bash
-ollama run llama3.2
-```
-
-### 2. Installation
-
-Clone the repository and install required Python packages:
+Requirements: Python 3.10+, [FFmpeg](https://ffmpeg.org/download.html), and optionally [Ollama](https://ollama.com).
 
 ```bash
 git clone https://github.com/mightyalok00/autovideo-ai.git
 cd autovideo-ai
-pip install -r requirements.txt
+python -m venv .venv
+# Windows: .venv\\Scripts\\activate
+# macOS/Linux: source .venv/bin/activate
+python -m pip install -r requirements.txt
 ```
 
-### 3. Launch the Web Studio
+### 2. Generate a video
+
+Start the local studio:
 
 ```bash
 python app.py
 ```
 
-Open `http://localhost:8501` in your browser to access the interactive web dashboard.
+Open **http://localhost:8501**.
 
-### 4. Or Run Headless from CLI
+Or run directly:
 
 ```bash
 python -c "from autonomous_agent import run_agent; run_agent('The Hidden Secrets of Deep Space', duration_minutes=3, niche_id='space')"
 ```
 
----
+### 3. Optional: use Ollama
 
-## Project Structure
+Install Ollama, then pull a model:
 
-```text
-autovideo-ai/
-├── app.py                  # Local Web Studio server & REST endpoints
-├── autonomous_agent.py     # 6-Stage Autonomous Director production loop
-├── agent_brain.py          # Viral retention rules & quality audit engine
-├── script_generator.py     # Multi-provider scriptwriter (Ollama, OpenRouter, Niche Engine)
-├── voiceover.py            # Microsoft Neural Voice generator (edge-tts 7.3.1)
-├── visuals_fetcher.py      # AI generation (Pollinations) & Archival fetcher (Wikimedia)
-├── video_assembler.py      # FFmpeg pan/zoom builder, concat demuxer & BGM mixer
-├── thumbnail_generator.py  # High-CTR 1280x720 thumbnail designer with typography overlays
-├── seo_optimizer.py        # YouTube title variants, chapter timestamps & tags
-├── niche_engine.py         # 10 Specialized niche templates & keyword discoverer
-├── config.py               # Paths, video dimensions, voice settings & model configs
-└── assets/music/           # Atmospheric ambient background soundtrack
+```bash
+ollama pull llama3.2
 ```
 
----
+No cloud API key is required for local script generation. Optional provider keys can be set in a `.env` file; see `.env.example`.
 
-## Supported Niches
+## Project map
 
-AutoVideo AI includes specialized production templates, pacing heuristics, and visual prompts for 10 high-growth YouTube niches:
+| File | Purpose |
+|---|---|
+| `app.py` | Local web studio |
+| `autonomous_agent.py` | Runs the production workflow |
+| `script_generator.py` | Script generation |
+| `voiceover.py` | Narration |
+| `visuals_fetcher.py` | Scene images |
+| `video_assembler.py` | FFmpeg rendering |
+| `thumbnail_generator.py` | Thumbnail creation |
+| `seo_optimizer.py` | YouTube metadata |
+| `config.py` | Defaults and paths |
 
-1. History & Ancient Civilizations (Stoicism, Rome, Forgotten Lore)
-2. Deep Space & Cosmic Mysteries (James Webb discoveries, Black Holes)
-3. True Crime & Dark Unsolved Mysteries (Cold cases, Interrogations)
-4. Stoicism & Dark Psychology (Marcus Aurelius, Mental resilience)
-5. Finance & The Secrets of Wealth (Economic collapse, Tycoons)
-6. AI, Tech & The Future (Singularity, Neural networks, Robotics)
-7. Horror, Cryptids & Folk Legends (Hauntings, Urban lore)
-8. Biohacking & Extreme Human Potential (Longevity, Neuroscience)
-9. Geopolitics & Shadow Wars (Global conflict, Intelligence agencies)
-10. Gaming Lore & Easter Eggs (Deep video game mythologies)
+## Output
 
----
+Generated files are saved in the project's output directory. Keep your API keys in `.env`—never commit secrets.
 
-## Configuration
+## Troubleshooting
 
-AutoVideo AI runs out-of-the-box with zero configuration required.
-
-To optionally integrate external cloud providers or custom settings, copy `.env.example` to `.env`:
-
-```ini
-# Optional Cloud LLM Keys (Ollama runs locally for free without keys)
-OPENROUTER_API_KEY=your_key_here
-GEMINI_API_KEY=your_key_here
-GROQ_API_KEY=your_key_here
-PEXELS_API_KEY=your_key_here
-
-# Local Ollama Endpoint (Default: http://localhost:11434)
-OLLAMA_URL=http://localhost:11434
-```
-
----
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
+- **FFmpeg not found:** Install FFmpeg and add it to your system PATH.
+- **Ollama unavailable:** Start Ollama and confirm the selected model is installed, or configure another provider.
+- **Video generation fails:** Check the terminal output and ensure enough disk space is available.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. Free for personal, academic, and commercial content automation.
+MIT. See [LICENSE](LICENSE).
