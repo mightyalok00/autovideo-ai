@@ -128,6 +128,79 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         
         .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: var(--primary); animation: spin 1s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* GITHUB ACTIONS CLOUD DISPATCH (DESKTOP & MOBILE) */
+        .github-runner-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            border-radius: 14px;
+            padding: 16px 20px;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.08);
+        }
+        .runner-left { display: flex; align-items: center; gap: 14px; }
+        .runner-icon {
+            font-size: 22px;
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            border-radius: 10px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .runner-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+        .runner-desc { font-size: 12px; color: var(--text-dim); line-height: 1.4; }
+        .runner-actions { display: flex; gap: 10px; flex-shrink: 0; }
+        .btn-github-run {
+            background: linear-gradient(135deg, #0284c7, #2563eb);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+            box-shadow: 0 2px 10px rgba(2, 132, 199, 0.3);
+        }
+        .btn-github-run:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(2, 132, 199, 0.5); }
+        .btn-github-repo {
+            background: #1e293b;
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+        .btn-github-repo:hover { border-color: var(--primary); color: #fff; }
+
+        @media (max-width: 768px) {
+            body { padding: 15px 10px; }
+            h1 { font-size: 1.8rem; }
+            .github-runner-card { flex-direction: column; align-items: stretch; text-align: left; }
+            .runner-actions { display: grid; grid-template-columns: 1fr 1fr; width: 100%; margin-top: 6px; }
+            .btn-github-run, .btn-github-repo { justify-content: center; padding: 12px; font-size: 13px; }
+            .search-row { flex-direction: column; }
+            .btn-search { padding: 12px; width: 100%; }
+            .search-results { grid-template-columns: 1fr; }
+            .row { grid-template-columns: 1fr !important; }
+            .preview-grid { grid-template-columns: 1fr !important; }
+        }
     </style>
 </head>
 <body>
@@ -136,6 +209,25 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             <div class="badge">🌐 Universal Video Engine</div>
             <h1>Autonomous Video Director Studio</h1>
             <p class="subtitle">Search, discover, and produce viral long-form videos across every niche.</p>
+        </div>
+
+        <!-- GITHUB ACTIONS CLOUD DISPATCH RUNNER (MOBILE & DESKTOP) -->
+        <div class="github-runner-card">
+            <div class="runner-left">
+                <div class="runner-icon">⚡</div>
+                <div>
+                    <div class="runner-title">Run in Cloud: Desktop & Mobile Dispatch</div>
+                    <div class="runner-desc">Directly trigger autonomous video rendering on GitHub Actions from your phone (GitHub Mobile app) or browser. No local hardware required.</div>
+                </div>
+            </div>
+            <div class="runner-actions">
+                <a href="https://github.com/mightyalok00/autovideo-ai/actions/workflows/generate-video.yml" target="_blank" rel="noopener" class="btn-github-run">
+                    <span>▶</span> Run on GitHub Actions
+                </a>
+                <a href="https://github.com/mightyalok00/autovideo-ai" target="_blank" rel="noopener" class="btn-github-repo">
+                    <span>★</span> GitHub Repo
+                </a>
+            </div>
         </div>
 
         <!-- SEARCH & IDEA DISCOVERY ENGINE -->

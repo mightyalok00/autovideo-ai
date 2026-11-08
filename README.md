@@ -7,6 +7,7 @@
 [![Local LLM](https://img.shields.io/badge/Ollama-Local%20%26%20Private-orange.svg?logo=ollama&logoColor=white)](https://ollama.com)
 [![Voice](https://img.shields.io/badge/Voice-Microsoft%20Neural%20TTS-cyan.svg)](https://github.com/rany2/edge-tts)
 [![Engine](https://img.shields.io/badge/Engine-FFmpeg%20Lossless-red.svg?logo=ffmpeg&logoColor=white)](https://ffmpeg.org/)
+[![Cloud Run](https://github.com/mightyalok00/autovideo-ai/actions/workflows/generate-video.yml/badge.svg)](https://github.com/mightyalok00/autovideo-ai/actions/workflows/generate-video.yml)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)](https://github.com/mightyalok00/autovideo-ai)
 
 **Transform raw topics into broadcast-quality 1080p YouTube documentaries, explainers, and lore videos with zero paid API subscriptions.**
@@ -63,7 +64,20 @@ flowchart LR
 
 ## Quick Start
 
-### 1. Prerequisites
+### Cloud & Mobile Run (Zero Local Setup)
+
+You can trigger production runs directly in the cloud from your mobile phone (GitHub Mobile App) or desktop browser:
+
+1. Open the [Generate Video Workflow](https://github.com/mightyalok00/autovideo-ai/actions/workflows/generate-video.yml).
+2. Click **Run workflow**.
+3. Type your topic, select your niche, pick duration (1, 3, or 5 min), and click **Run workflow**.
+4. When finished, download your broadcast-ready 1080p MP4, thumbnail, and SEO package from the **Artifacts** section.
+
+---
+
+### Local Installation
+
+#### 1. Prerequisites
 
 - Python 3.10 or higher
 - FFmpeg installed and added to system `PATH`
