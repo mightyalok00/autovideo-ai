@@ -3,7 +3,7 @@
 ## Autonomous 100% Free Long-Form Video Production Engine
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Local LLM](https://img.shields.io/badge/Ollama-Local%20%26%20Private-orange.svg?logo=ollama&logoColor=white)](https://ollama.com)
 [![Voice](https://img.shields.io/badge/Voice-Microsoft%20Neural%20TTS-cyan.svg)](https://github.com/rany2/edge-tts)
 [![Engine](https://img.shields.io/badge/Engine-FFmpeg%20Lossless-red.svg?logo=ffmpeg&logoColor=white)](https://ffmpeg.org/)
@@ -169,4 +169,4 @@ Contributions are welcome! Please follow these steps:
 
 ## License
 
-Distributed under the MIT License. Free for personal, academic, and commercial content automation.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. Free for personal, academic, and commercial content automation.
