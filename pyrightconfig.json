@@ -1,0 +1,8 @@
+{
+  "include": ["."],
+  "extraPaths": ["."],
+  "reportMissingImports": "none",
+  "reportMissingTypeStubs": "none",
+  "reportGeneralTypeIssues": "none"
+}
+

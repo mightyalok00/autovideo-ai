@@ -1,0 +1,59 @@
+{
+  "total_videos_created": 6,
+  "history": [
+    {
+      "timestamp": "2026-11-08 17:06:30",
+      "topic": "The Lost City of Atlantis",
+      "persona": "documentary",
+      "duration_seconds": 43.75,
+      "quality_score": 9.4,
+      "video_path": "E:\\ai-long-video-automation\\output\\the_lost_city_of_atlantis_master.mp4",
+      "thumbnail_path": "E:\\ai-long-video-automation\\output\\the_lost_city_of_atlantis_thumbnail.jpg"
+    },
+    {
+      "timestamp": "2026-11-08 17:15:44",
+      "topic": "The Rise and Fall of the Roman Empire",
+      "persona": "documentary",
+      "duration_seconds": 45.0,
+      "quality_score": 9.4,
+      "video_path": "E:\\ai-long-video-automation\\output\\the_rise_and_fall_of_the_roman_master.mp4",
+      "thumbnail_path": "E:\\ai-long-video-automation\\output\\the_rise_and_fall_of_the_roman_thumbnail.jpg"
+    },
+    {
+      "timestamp": "2026-11-08 18:25:33",
+      "topic": "The Untold Origin Story of Stoicism & Dark Psychology",
+      "niche": "History & Ancient Civilizations",
+      "duration_seconds": 45.42,
+      "quality_score": 9.4,
+      "video_path": "E:\\ai-long-video-automation\\output\\the_untold_origin_story_of_sto_master.mp4",
+      "thumbnail_path": "E:\\ai-long-video-automation\\output\\the_untold_origin_story_of_sto_thumbnail.jpg"
+    },
+    {
+      "timestamp": "2026-11-08 20:24:40",
+      "topic": "The Untold Origin Story of Stoicism & Dark Psychology",
+      "niche": "History & Ancient Civilizations",
+      "duration_seconds": 54.6,
+      "quality_score": 9.4,
+      "video_path": "E:\\ai-long-video-automation\\output\\the_untold_origin_story_of_sto_master.mp4",
+      "thumbnail_path": "E:\\ai-long-video-automation\\output\\the_untold_origin_story_of_sto_thumbnail.jpg"
+    },
+    {
+      "timestamp": "2026-11-08 20:29:23",
+      "topic": "The Untold Origin Story of Stoicism & Dark Psychology",
+      "niche": "History & Ancient Civilizations",
+      "duration_seconds": 54.6,
+      "quality_score": 9.4,
+      "video_path": "E:\\ai-long-video-automation\\output\\the_untold_origin_story_of_sto_master.mp4",
+      "thumbnail_path": "E:\\ai-long-video-automation\\output\\the_untold_origin_story_of_sto_thumbnail.jpg"
+    },
+    {
+      "timestamp": "2026-11-08 20:36:51",
+      "topic": "The Untold Origin Story of Stoicism & Dark Psychology",
+      "niche": "History & Ancient Civilizations",
+      "duration_seconds": 54.6,
+      "quality_score": 9.4,
+      "video_path": "E:\\ai-long-video-automation\\output\\the_untold_origin_story_of_sto_master.mp4",
+      "thumbnail_path": "E:\\ai-long-video-automation\\output\\the_untold_origin_story_of_sto_thumbnail.jpg"
+    }
+  ]
+}
