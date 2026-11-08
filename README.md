@@ -1,41 +1,35 @@
-<div align="center">
+# AutoVideo AI
 
-# 🎬 AutoVideo AI
-
-### Autonomous 100% Free Long-Form Video Production Engine
+## Autonomous 100% Free Long-Form Video Production Engine
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Local LLM](https://img.shields.io/badge/Ollama-Local%20%26%20Private-orange.svg?logo=ollama&logoColor=white)](https://ollama.com)
 [![Voice](https://img.shields.io/badge/Voice-Microsoft%20Neural%20TTS-cyan.svg)](https://github.com/rany2/edge-tts)
 [![Engine](https://img.shields.io/badge/Engine-FFmpeg%20Lossless-red.svg?logo=ffmpeg&logoColor=white)](https://ffmpeg.org/)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)]()
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)](https://github.com/mightyalok00/autovideo-ai)
 
-<p align="center">
-  <strong>Transform raw topics into broadcast-quality 1080p YouTube documentaries, explainers, and lore videos with zero paid API subscriptions.</strong>
-</p>
+**Transform raw topics into broadcast-quality 1080p YouTube documentaries, explainers, and lore videos with zero paid API subscriptions.**
 
-[Key Features](#-key-features) • [Quick Start](#-quick-start) • [Architecture](#-pipeline-architecture) • [Niches](#-supported-niches) • [Web Studio](#-web-studio-dashboard) • [Configuration](#-configuration)
+[Key Features](#key-features) • [Quick Start](#quick-start) • [Pipeline Architecture](#pipeline-architecture) • [Supported Niches](#supported-niches) • [Configuration](#configuration)
 
 ---
 
-</div>
+## Overview
 
-## 💡 Overview
+AutoVideo AI is a self-directing video production engine designed for content creators, educators, and media automation workflows.
 
-**AutoVideo AI** is a fully autonomous AI video director designed for content creators, educators, and media automation workflows. 
+Unlike tools that rely on expensive SaaS subscriptions, AutoVideo AI runs a unified, zero-cost pipeline on your local hardware:
 
-Unlike conventional tools that require stitching together disparate paid SaaS platforms, AutoVideo AI runs a unified, zero-cost pipeline on your local hardware:
-
-1. **Scriptwriting:** Directs dynamic multi-scene narrative scripts via local **Ollama** models (`llama3.2`, `mistral`, `deepseek-r1`) with cloud fallback options.
-2. **Audio Synthesis:** Narrates scripts using **Microsoft Edge Neural Speech** for natural human pacing and inflection.
-3. **Visual Production:** Generates tailored scenes using **Pollinations AI (Flux/SDXL)** coupled with authentic, museum-grade archival imagery from **Wikimedia REST**.
-4. **Cinematic Assembly:** Executes lossless **FFmpeg** rendering with Ken Burns pan/zoom motions, audio ducking, and ambient background music.
+1. **Scriptwriting:** Directs dynamic multi-scene narrative scripts via local Ollama models (`llama3.2`, `mistral`, `deepseek-r1`) with cloud fallback options.
+2. **Audio Synthesis:** Narrates scripts using Microsoft Edge Neural Speech for natural human pacing and inflection.
+3. **Visual Production:** Generates tailored scenes using Pollinations AI coupled with authentic archival imagery from Wikimedia REST.
+4. **Cinematic Assembly:** Executes lossless FFmpeg rendering with Ken Burns pan/zoom motions, audio ducking, and ambient background music.
 5. **YouTube Packaging:** Automatically produces 1280x720 high-CTR thumbnails, timestamped chapter markers, SEO titles, and tags.
 
 ---
 
-## 🌟 Key Features
+## Key Features
 
 | Capability | Implementation | Benefit |
 | :--- | :--- | :--- |
@@ -49,7 +43,7 @@ Unlike conventional tools that require stitching together disparate paid SaaS pl
 
 ---
 
-## 🏗️ Pipeline Architecture
+## Pipeline Architecture
 
 ```mermaid
 flowchart LR
@@ -67,17 +61,20 @@ flowchart LR
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Prerequisites
-- **Python 3.10 or higher**
-- **FFmpeg** installed and added to system `PATH`
-- *(Recommended)* **[Ollama](https://ollama.com)** for local, private script generation:
-  ```bash
-  ollama run llama3.2
-  ```
+
+- Python 3.10 or higher
+- FFmpeg installed and added to system `PATH`
+- (Recommended) [Ollama](https://ollama.com) for local, private script generation:
+
+```bash
+ollama run llama3.2
+```
 
 ### 2. Installation
+
 Clone the repository and install required Python packages:
 
 ```bash
@@ -87,19 +84,22 @@ pip install -r requirements.txt
 ```
 
 ### 3. Launch the Web Studio
+
 ```bash
 python app.py
 ```
-Open **`http://localhost:8501`** in your browser to access the interactive web dashboard.
+
+Open `http://localhost:8501` in your browser to access the interactive web dashboard.
 
 ### 4. Or Run Headless from CLI
+
 ```bash
 python -c "from autonomous_agent import run_agent; run_agent('The Hidden Secrets of Deep Space', duration_minutes=3, niche_id='space')"
 ```
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 autovideo-ai/
@@ -119,26 +119,26 @@ autovideo-ai/
 
 ---
 
-## 🎭 Supported Niches
+## Supported Niches
 
 AutoVideo AI includes specialized production templates, pacing heuristics, and visual prompts for 10 high-growth YouTube niches:
 
-1. 📜 **History & Ancient Civilizations** (Stoicism, Rome, Forgotten Lore)
-2. 🌌 **Deep Space & Cosmic Mysteries** (James Webb discoveries, Black Holes)
-3. 🕵️ **True Crime & Dark Unsolved Mysteries** (Cold cases, Interrogations)
-4. 🧠 **Stoicism & Dark Psychology** (Marcus Aurelius, Mental resilience)
-5. 💰 **Finance & The Secrets of Wealth** (Economic collapse, Tycoons)
-6. 🤖 **AI, Tech & The Future** (Singularity, Neural networks, Robotics)
-7. 👻 **Horror, Cryptids & Folk Legends** (Hauntings, Urban lore)
-8. 🧬 **Biohacking & Extreme Human Potential** (Longevity, Neuroscience)
-9. 🌍 **Geopolitics & Shadow Wars** (Global conflict, Intelligence agencies)
-10. 🎮 **Gaming Lore & Easter Eggs** (Deep video game mythologies)
+1. History & Ancient Civilizations (Stoicism, Rome, Forgotten Lore)
+2. Deep Space & Cosmic Mysteries (James Webb discoveries, Black Holes)
+3. True Crime & Dark Unsolved Mysteries (Cold cases, Interrogations)
+4. Stoicism & Dark Psychology (Marcus Aurelius, Mental resilience)
+5. Finance & The Secrets of Wealth (Economic collapse, Tycoons)
+6. AI, Tech & The Future (Singularity, Neural networks, Robotics)
+7. Horror, Cryptids & Folk Legends (Hauntings, Urban lore)
+8. Biohacking & Extreme Human Potential (Longevity, Neuroscience)
+9. Geopolitics & Shadow Wars (Global conflict, Intelligence agencies)
+10. Gaming Lore & Easter Eggs (Deep video game mythologies)
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
-AutoVideo AI runs out-of-the-box with **zero configuration** required. 
+AutoVideo AI runs out-of-the-box with zero configuration required.
 
 To optionally integrate external cloud providers or custom settings, copy `.env.example` to `.env`:
 
@@ -155,9 +155,10 @@ OLLAMA_URL=http://localhost:11434
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please follow these steps:
+
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add AmazingFeature'`)
@@ -166,6 +167,6 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## 📜 License
+## License
 
-Distributed under the **MIT License**. See `LICENSE` for more information. Free for personal, academic, and commercial content automation.
+Distributed under the MIT License. Free for personal, academic, and commercial content automation.
