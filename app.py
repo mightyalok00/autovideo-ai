@@ -527,10 +527,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(HTML_TEMPLATE.encode("utf-8"))
         elif path == "/api/status":
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            self.wfile.write(json.dumps(STATUS).encode("utf-8"))
+            with STATUS_LOCK:
+                status = STATUS.copy()
+            self._send_json(status)
         elif path == "/api/search":
             qs = urllib.parse.parse_qs(parsed.query)
             q = qs.get("q", ["history"])[0]
