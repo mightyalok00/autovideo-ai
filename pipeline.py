@@ -2,9 +2,7 @@
 
 import argparse
 from pathlib import Path
-import sys
 
-from config import DEFAULT_VOICE
 from autonomous_agent import run_agent
 
 
@@ -14,13 +12,12 @@ def main() -> None:
     parser.add_argument("--duration", type=int, default=3, help="Length in minutes")
     parser.add_argument("--niche", default="history", help="Niche ID (default: history)")
     parser.add_argument("--script", help="Optional custom script file")
-    parser.add_argument("--voice", default=DEFAULT_VOICE, help="Narration voice")
     args = parser.parse_args()
 
     topic = args.topic.strip()
     if not topic:
         parser.error("--topic cannot be empty")
-    if args.duration < 1 or args.duration > 60:
+    if not 1 <= args.duration <= 60:
         parser.error("--duration must be between 1 and 60 minutes")
     if args.script and not Path(args.script).is_file():
         parser.error(f"Script file does not exist: {args.script}")
@@ -31,7 +28,7 @@ def main() -> None:
         niche_id=args.niche,
         custom_script=args.script,
     )
-    print(f"\\nVideo created: {result['video_path']}")
+    print(f"\nVideo created: {result['video_path']}")
 
 
 if __name__ == "__main__":
