@@ -539,16 +539,16 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(json.dumps(results).encode("utf-8"))
         elif path.startswith("/output/"):
-            filename = urllib.parse.unquote(path.split("/output/")[1])
-            file_path = OUTPUT_DIR / filename
-            if file_path.exists():
-                mime = "video/mp4" if filename.endswith(".mp4") else "image/jpeg"
+            filename = Path(urllib.parse.unquote(path.removeprefix("/output/"))).name
+            file_path = (OUTPUT_DIR / filename).resolve()
+            if file_path.is_relative_to(OUTPUT_DIR.resolve()) and file_path.is_file():
+                mime = "video/mp4" if file_path.suffix.lower() == ".mp4" else "image/jpeg"
                 self.send_response(200)
                 self.send_header("Content-Type", mime)
                 self.send_header("Content-Length", str(file_path.stat().st_size))
                 self.end_headers()
-                with open(file_path, "rb") as f:
-                    self.wfile.write(f.read())
+                with file_path.open("rb") as output_file:
+                    self.wfile.write(output_file.read())
             else:
                 self.send_error(404, "File not found")
         else:
