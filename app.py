@@ -26,6 +26,8 @@ from config import OUTPUT_DIR  # type: ignore  # noqa: E402
 from niche_engine import search_niche_ideas  # type: ignore  # noqa: E402
 
 PORT = 8501
+STATUS_LOCK = threading.Lock()
+GENERATION_LOCK = threading.Lock()
 STATUS = {
     "state": "idle",
     "step": 0,
