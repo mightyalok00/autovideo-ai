@@ -604,7 +604,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
 
 def start_server():
-    server = socketserver.TCPServer(("", PORT), RequestHandler)
+    server = socketserver.ThreadingTCPServer(("", PORT), RequestHandler)
+    server.daemon_threads = True
     print(f"\n🌐 Universal All-Niche Video Studio running at: http://localhost:{PORT}")
     server.serve_forever()
 
