@@ -1,20 +1,20 @@
 # AutoVideo AI
 
-**Turn a topic into a narrated YouTube video—using free tools and a simple Python workflow.**
+**Turn a topic into a narrated YouTube video with free tools and a simple Python workflow.**
 
-AutoVideo AI creates scripts, voiceovers, visuals, MP4 videos, thumbnails, and YouTube metadata. It runs locally and uses FFmpeg for rendering.
+AutoVideo AI generates scripts, narration, visuals, MP4 videos, thumbnails, and YouTube metadata. It runs locally and uses FFmpeg for rendering.
 
-## What it does
+## Features
 
-- Generates a video script with a local Ollama model or configured AI provider.
-- Creates narration with Microsoft Edge TTS.
-- Finds or generates scene visuals.
-- Renders scenes and narration into an MP4 with FFmpeg.
-- Creates a thumbnail and SEO-ready title, description, tags, and chapters.
+- Script generation with Ollama or a configured AI provider
+- Microsoft Edge text-to-speech narration
+- Scene visuals from supported sources
+- FFmpeg video rendering and background music
+- Thumbnail and YouTube SEO metadata generation
 
 ## Quick start
 
-### 1. Install
+### Install
 
 Requirements: Python 3.10+, [FFmpeg](https://ffmpeg.org/download.html), and optionally [Ollama](https://ollama.com).
 
@@ -27,9 +27,15 @@ python -m venv .venv
 python -m pip install -r requirements.txt
 ```
 
-### 2. Generate a video
+### Generate a video
 
-Start the local studio:
+Run the simplified CLI:
+
+```bash
+python pipeline.py --topic "Deep Space Mysteries" --duration 3 --niche space
+```
+
+Or start the web studio:
 
 ```bash
 python app.py
@@ -37,45 +43,35 @@ python app.py
 
 Open **http://localhost:8501**.
 
-Or run directly:
-
-```bash
-python -c "from autonomous_agent import run_agent; run_agent('The Hidden Secrets of Deep Space', duration_minutes=3, niche_id='space')"
-```
-
-### 3. Optional: use Ollama
-
-Install Ollama, then pull a model:
+### Optional local AI
 
 ```bash
 ollama pull llama3.2
 ```
 
-No cloud API key is required for local script generation. Optional provider keys can be set in a `.env` file; see `.env.example`.
+No cloud API key is needed for local script generation. Optional provider keys are configured in `.env`; see `.env.example`.
 
-## Project map
+## Project structure
 
-| File | Purpose |
+| File | Responsibility |
 |---|---|
-| `app.py` | Local web studio |
-| `autonomous_agent.py` | Runs the production workflow |
+| `pipeline.py` | CLI and input validation |
+| `autonomous_agent.py` | Main production workflow |
 | `script_generator.py` | Script generation |
 | `voiceover.py` | Narration |
-| `visuals_fetcher.py` | Scene images |
+| `visuals_fetcher.py` | Scene visuals |
 | `video_assembler.py` | FFmpeg rendering |
 | `thumbnail_generator.py` | Thumbnail creation |
 | `seo_optimizer.py` | YouTube metadata |
 | `config.py` | Defaults and paths |
 
-## Output
-
-Generated files are saved in the project's output directory. Keep your API keys in `.env`—never commit secrets.
-
 ## Troubleshooting
 
-- **FFmpeg not found:** Install FFmpeg and add it to your system PATH.
-- **Ollama unavailable:** Start Ollama and confirm the selected model is installed, or configure another provider.
-- **Video generation fails:** Check the terminal output and ensure enough disk space is available.
+- **FFmpeg not found:** Install FFmpeg and add it to PATH.
+- **Ollama unavailable:** Start Ollama and verify the model is installed, or configure another provider.
+- **Generation fails:** Check terminal logs and available disk space.
+
+Keep API keys in `.env`, never in source code.
 
 ## License
 
